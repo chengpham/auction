@@ -1,4 +1,5 @@
-const BASE_URL = 'http://localhost:3000/api/v1';
+// const BASE_URL = 'http://localhost:3000/api/v1';
+const BASE_URL = 'https://chengs-auction.herokuapp.com/api/v1';
 
 export const Session = {
   create(params) {
@@ -39,7 +40,6 @@ export const Auction = {
   index() {
     return fetch(`${BASE_URL}/auctions`)
       .then(res => {
-        console.log(res)
         return res.json();
       })
   },

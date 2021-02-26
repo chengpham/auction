@@ -16,18 +16,22 @@ const App = () => {
 
   useEffect(()=>{
     Session.currentUser()
-    .then(user=>{
-      setUser({user: user})
+    .then(res=>{
+      console.log("CURRENT_USER: ", res)
+      setUser({user: res})
     })
   }, [])
 
   const handleSignIn = (params)=>{
     Session.create(params)
-    .then(()=>{
+    .then((res)=>{
+      console.log("SignIn button: ", res)
+      setUser({user: res})
       return Session.currentUser()
     })
-    .then(user=>{
-      setUser({user: user})
+    .then(res=>{
+      console.log("bottom after: ", res)
+      setUser({user: res})
     })
   }
   const handleSignUp = (params)=>{
