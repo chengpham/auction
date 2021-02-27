@@ -1,24 +1,41 @@
 // const BASE_URL = 'http://localhost:3000/api/v1';
+// const HOST = 'localhost:3000'
 const BASE_URL = 'https://chengs-auction.herokuapp.com/api/v1';
+const HOST = 'chengs-auction.herokuapp.com';
 
 export const Session = {
   create(params) {
+    let bodyLength = JSON.stringify(params).length + 1
     return fetch(`${BASE_URL}/session`, {
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type':'application/json',
+        'Host':HOST,
+        'Content-Length':bodyLength
+      },
       credentials: 'include', 
       method: 'POST',
       body: JSON.stringify(params)
     }).then((res) => {
-      return res.json();
+      console.log("SessionCreate4: ", res.json())
+      // return res.json();
     })
   },
   currentUser(){
     return fetch(`${BASE_URL}/current_user`,{
-      credentials: 'include'
-    }).then((res)=> res.json())
+      headers: {
+        'Content-Type':'application/json', 
+        'Host':HOST
+      },
+      credentials: 'include',
+      method: 'GET',
+    }).then((res)=> {
+      console.log("CurrentUser4: ", res.json())
+      // return res.json()
+    })
   },
   destroy(){
     return fetch(`${BASE_URL}/session`, {
+      headers: {'Host':HOST},
       method: 'DELETE',
       credentials: 'include'
     }).then(res => res.json())

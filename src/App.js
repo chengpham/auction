@@ -15,9 +15,9 @@ const App = () => {
   const [user, setUser] = useState({})
 
   useEffect(()=>{
+    console.log("Troubleshooting 4 ")
     Session.currentUser()
     .then(res=>{
-      console.log("CURRENT_USER: ", res)
       setUser({user: res})
     })
   }, [])
@@ -25,12 +25,10 @@ const App = () => {
   const handleSignIn = (params)=>{
     Session.create(params)
     .then((res)=>{
-      console.log("SignIn button: ", res)
       setUser({user: res})
       return Session.currentUser()
     })
     .then(res=>{
-      console.log("bottom after: ", res)
       setUser({user: res})
     })
   }
