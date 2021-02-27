@@ -10,7 +10,8 @@ export const Session = {
       headers: {
         'Content-Type':'application/json',
         'Host':HOST,
-        'Content-Length':bodyLength
+        'Content-Length':bodyLength,
+        'Set-Cookie':'domain=chengs-biddr.herokuapp.com'
       },
       credentials: 'include', 
       method: 'POST',
@@ -24,7 +25,8 @@ export const Session = {
     return fetch(`${BASE_URL}/current_user`,{
       headers: {
         'Content-Type':'application/json', 
-        'Host':HOST
+        'Host':HOST,
+        'Set-Cookie':'domain=chengs-biddr.herokuapp.com'
       },
       credentials: 'include',
       method: 'GET',
