@@ -51,7 +51,7 @@ const App = () => {
       <Navbar current_user={user} destroySession={destroySession} />
       <div className='app container-fluid'>
       <Switch>
-      <Route exact path='/' component={WelcomePage} />
+      <Route exact path='/auction' component={WelcomePage} />
       <AuthRoute exact path='/auctions/new' isAuth={user.user} component={AuctionNewPage}/>
       <Route path='/auctions/:id' render={(routeProps)=><AuctionsShowPage current_user={user} {...routeProps} />} />
       <Route path='/auctions' render={(routeProps)=><AuctionsIndexPage current_user={user} {...routeProps} />} />

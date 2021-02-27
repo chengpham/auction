@@ -22,7 +22,6 @@ export const Session = {
   },
   destroy(){
     return fetch(`${BASE_URL}/session`, {
-      headers: {'Host':HOST},
       method: 'DELETE',
       credentials: 'include'
     }).then(res => res.json())
