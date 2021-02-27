@@ -15,7 +15,6 @@ const App = () => {
   const [user, setUser] = useState({})
 
   useEffect(()=>{
-    console.log("Troubleshooting 4 ")
     Session.currentUser()
     .then(res=>{
       setUser({user: res})
@@ -52,7 +51,7 @@ const App = () => {
       <Navbar current_user={user} destroySession={destroySession} />
       <div className='app container-fluid'>
       <Switch>
-      <Route exact path='/auction' component={WelcomePage} />
+      <Route exact path='/' component={WelcomePage} />
       <AuthRoute exact path='/auctions/new' isAuth={user.user} component={AuctionNewPage}/>
       <Route path='/auctions/:id' render={(routeProps)=><AuctionsShowPage current_user={user} {...routeProps} />} />
       <Route path='/auctions' render={(routeProps)=><AuctionsIndexPage current_user={user} {...routeProps} />} />
