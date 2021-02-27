@@ -4,7 +4,6 @@ import { Bid } from '../requests';
 
 export default function AuctionShowPage(props) {
     const [auction, setAuction] = useState([])
-    const current_user = props.current_user
     useEffect(()=>{
       showAuction()
     }, [])
