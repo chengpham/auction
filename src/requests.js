@@ -10,29 +10,27 @@ export const Session = {
       headers: {
         'Content-Type':'application/json',
         'Host':HOST,
-        'Content-Length':bodyLength,
-        'Set-Cookie':'domain=chengs-biddr.herokuapp.com'
+        'Content-Length':bodyLength
       },
       credentials: 'include', 
       method: 'POST',
       body: JSON.stringify(params)
     }).then((res) => {
-      console.log("SessionCreate4: ", res.json())
-      // return res.json();
+      // console.log("SessionCreate4: ", res.json())
+      return res.json();
     })
   },
   currentUser(){
     return fetch(`${BASE_URL}/current_user`,{
       headers: {
         'Content-Type':'application/json', 
-        'Host':HOST,
-        'Set-Cookie':'domain=chengs-biddr.herokuapp.com'
+        'Host':HOST
       },
       credentials: 'include',
       method: 'GET',
     }).then((res)=> {
-      console.log("CurrentUser4: ", res.json())
-      // return res.json()
+      // console.log("CurrentUser4: ", res.json())
+      return res.json()
     })
   },
   destroy(){
