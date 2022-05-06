@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+
+* {
+  font-size: 1.05em;
+  font-family: 'Nothing You Could Do', cursive;
+}
+
+.welcome {
+  width: '100vw';
+  min-height: '100%';
+}
+
